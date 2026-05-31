@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITT Web Development | Portfolio Premium</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#09090b',
+                        neonBlue: '#00d2ff',
+                        neonPurple: '#7928ca',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(0, 210, 255, 0.3)',
+                        'neon-thick': '0 0 25px rgba(0, 210, 255, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #09090b;
+        }
+        .glass {
+            background: rgba(15, 15, 20, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #00d2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .neon-glow {
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.3));
+        }
+    </style>
+</head>
+<body class="text-gray-200 overflow-x-hidden antialiased">
+
+    <!-- Efek Cahaya Latar Belakang (Ambient Glows) -->
+    <div class="fixed top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-neonBlue/10 blur-[150px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-neonBlue/10 blur-[130px] pointer-events-none z-0"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="text-2xl font-extrabold tracking-wider text-white flex items-center gap-2 group">
+                <span class="bg-gradient-to-r from-white to-neonBlue bg-clip-text text-transparent">GITT</span>
+                <span class="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium hover:text-neonBlue transition-colors duration-300">Beranda</a>
+                <a href="#about" class="text-sm font-medium hover:text-neonBlue transition-colors duration-300">Tentang</a>
+                <a href="#portfolio" class="text-sm font-medium hover:text-neonBlue transition-colors duration-300">Portfolio</a>
+                <a href="#testimoni" class="text-sm font-medium hover:text-neonBlue transition-colors duration-300">Testimoni</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-white text-darkBg text-sm font-semibold hover:bg-neonBlue hover:text-darkBg transition-all duration-300 hover:shadow-neon">Hubungi Kami</a>
+            </div>
+
+            <!-- Ikon Burger Menu Mobile -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-b border-white/5 absolute top-20 left-0 w-full py-6 px-6 flex flex-col gap-5 shadow-2xl transition-all duration-300">
+            <a href="#home" class="mobile-link text-lg font-medium hover:text-neonBlue">Beranda</a>
+            <a href="#about" class="mobile-link text-lg font-medium hover:text-neonBlue">Tentang</a>
+            <a href="#portfolio" class="mobile-link text-lg font-medium hover:text-neonBlue">Portfolio</a>
+            <a href="#testimoni" class="mobile-link text-lg font-medium hover:text-neonBlue">Testimoni</a>
+            <a href="#contact" class="mobile-link px-5 py-3 rounded-xl bg-neonBlue/10 border border-neonBlue/30 text-neonBlue text-center font-semibold">Hubungi Kami</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="min-h-screen pt-32 flex items-center relative z-10 max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+            <!-- Konten Kiri -->
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 mb-6">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neonBlue opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-neonBlue"></span>
+                    </span>
+                    <span class="text-xs font-semibold tracking-wider text-white/80 uppercase">Tersedia untuk Proyek Baru</span>
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-black tracking-tight leading-none mb-4 text-gradient">
+                    Build Your <br><span class="text-neonBlue">Modern Website</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl font-semibold text-white/90 mb-6">
+                    Professional Web Developer & UI Designer
+                </h2>
+                <p class="text-gray-400 text-base md:text-lg mb-8 max-w-xl leading-relaxed">
+                    Kami mentransformasikan ide bisnis Anda menjadi sebuah website premium berskala global. Desain futuristik, performa super cepat, dan optimasi responsif penuh.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#portfolio" class="px-8 py-4 rounded-full bg-neonBlue text-darkBg font-bold hover:bg-white hover:text-darkBg transition-all duration-300 hover:shadow-neon flex items-center gap-2 group">
+                        Portfolio <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 rounded-full glass border border-white/10 font-bold hover:border-neonBlue/50 text-white transition-all duration-300">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+
+            <!-- Konten Kanan (Tampilan Layar Coding Mockup) -->
+            <div data-aos="fade-left" data-aos-duration="1000" class="relative lg:pl-10">
+                <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-neonBlue to-purple-600 opacity-30 blur-2xl"></div>
+                <div class="relative glass rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+                    <!-- Decorative Lights -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-neonBlue/20 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl -z-10"></div>
+                    
+                    <!-- Bar Atas Jendela -->
+                    <div class="bg-gradient-to-r from-white/10 to-white/5 px-4 py-3 flex items-center justify-between border-b border-white/10 backdrop-blur">
+                        <div class="flex gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block shadow-lg"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block shadow-lg"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block shadow-lg"></span>
+                        </div>
+                        <span class="text-xs text-neonBlue font-mono font-bold">gitt-developer.js</span>
+                        <i class="fa-solid fa-ellipsis text-gray-500 text-xs"></i>
+                    </div>
+                    <!-- Area Kode Terminal -->
+                    <div class="p-6 font-mono text-xs md:text-sm leading-relaxed text-gray-300 bg-gradient-to-b from-black/60 to-black/40">
+                        <p><span class="text-purple-400">const</span> <span class="text-blue-400">developer</span> = {</p>
+                        <p class="pl-4"><span class="text-gray-300">nama:</span> <span class="text-amber-300">'GITT Web Dev'</span>,</p>
+                        <p class="pl-4"><span class="text-gray-300">keahlian:</span> [<span class="text-amber-300">'HTML5'</span>, <span class="text-amber-300">'TailwindCSS'</span>, <span class="text-amber-300">'JavaScript'</span>],</p>
+                        <p class="pl-4"><span class="text-gray-300">layanan:</span> [<span class="text-amber-300">'UI/UX'</span>, <span class="text-amber-300">'Landing Page Premium'</span>, <span class="text-amber-300">'Joki Website'</span>],</p>
+                        <p class="pl-4"><span class="text-gray-300">kecepatan:</span> <span class="text-orange-400">100</span>, <span class="text-gray-500">// Sangat Cepat</span></p>
+                        <p class="pl-4"><span class="text-gray-300">responsif:</span> <span class="text-purple-400">true</span></p>
+                        <p class="p-0">};</p>
+                        <br>
+                        <p><span class="text-purple-400">function</span> <span class="text-blue-500">buatSukses</span>() {</p>
+                        <p class="pl-4 text-green-400"><span class="text-purple-400">return</span> <span class="text-green-300">`Visi Anda + Kode Futuristik Kami ✨`</span>;</p>
+                        <p class="p-0">}</p>
+                        <p><span class="text-blue-500">console</span>.<span class="text-yellow-400">log</span>(buatSukses());</p>
+                    </div>
+                    <!-- Bottom Glow -->
+                    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neonBlue to-transparent opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / TENTANG & LAYANAN SECTION -->
+    <section id="about" class="py-32 relative z-10 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+            <h2 class="text-xs uppercase font-extrabold tracking-widest text-neonBlue mb-3">SIAPA KAMI</h2>
+            <p class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
+                Membawa Solusi Digital Kreatif Ke Level Selanjutnya
+            </p>
+            <p class="text-gray-400 text-lg leading-relaxed">
+                <strong class="text-white">GITT Web Development</strong> adalah partner andalan untuk mewujudkan website idaman Anda. Mulai dari pembuatan landing page bisnis, desain UI/UX yang memanjakan mata, hingga jasa pengerjaan (jokian) proyek website dengan eksekusi kode yang bersih dan modern.
+            </p>
+        </div>
+
+        <!-- 3 Card Layanan -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1: Landing Page -->
+            <div data-aos="fade-up" data-aos-delay="100" class="glass rounded-2xl p-8 group hover:border-neonBlue/40 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent to-neonBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div class="w-14 h-14 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-2xl mb-6 shadow-neon group-hover:bg-neonBlue group-hover:text-darkBg transition-all duration-300">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Landing Page</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Halaman penjualan atau profil bisnis eksklusif dengan konversi tinggi yang dirancang khusus untuk memikat calon klien Anda.
+                </p>
+            </div>
+
+            <!-- Card 2: UI/UX Design -->
+            <div data-aos="fade-up" data-aos-delay="200" class="glass rounded-2xl p-8 group hover:border-neonBlue/40 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent to-neonBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div class="w-14 h-14 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-2xl mb-6 shadow-neon group-hover:bg-neonBlue group-hover:text-darkBg transition-all duration-300">
+                    <i class="fa-solid fa-bezier-curve"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">UI/UX Design</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Prototipe antarmuka modern, mewah, dan intuitif. Memastikan pengalaman pengguna (UX) mengalir mulus tanpa hambatan.
+                </p>
+            </div>
+
+            <!-- Card 3: Responsive Website / Joki -->
+            <div data-aos="fade-up" data-aos-delay="300" class="glass rounded-2xl p-8 group hover:border-neonBlue/40 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent to-neonBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div class="w-14 h-14 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-2xl mb-6 shadow-neon group-hover:bg-neonBlue group-hover:text-darkBg transition-all duration-300">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Responsive Website</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Jasa modifikasi kustom hingga jokian pembuatan website kustom dengan jaminan responsif penuh di smartphone maupun desktop.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-32 relative z-10 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
+            <div>
+                <h2 class="text-xs uppercase font-extrabold tracking-widest text-neonBlue mb-3">KARYA TERBARU</h2>
+                <p class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">Hasil Jokian Website</p>
+            </div>
+            <p class="text-gray-400 max-w-md mt-4 md:mt-0">
+                Kumpulan proyek pembuatan website premium yang telah diselesaikan dengan ketepatan struktur kode yang presisi.
+            </p>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Project 1: Website Clothing -->
+            <div data-aos="fade-up" class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-neonBlue/30 transition-all duration-300">
+                <div class="overflow-hidden aspect-video relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-30">
+                        <div class="absolute top-0 left-0 w-40 h-40 bg-purple-500 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-0 right-0 w-40 h-40 bg-pink-500 rounded-full blur-3xl"></div>
+                    </div>
+                    <!-- Professional Product Display -->
+                    <div class="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <div class="text-center z-10">
+                            <div class="text-6xl mb-4 group-hover:text-neonBlue transition-colors duration-300">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                            </div>
+                            <div class="text-white font-bold text-sm">WINGSTONE</div>
+                            <div class="text-neonBlue text-xs mt-1">E-Commerce Fashion</div>
+                        </div>
+                    </div>
+                    <span class="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded-full text-xs text-white border border-white/10">Brand Pakaian</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neonBlue transition-colors">Website Clothing</h3>
+                    <p class="text-gray-400 text-sm mb-6">Website E-commerce fungsional untuk brand pakaian lokal lengkap dengan katalog interaktif yang sangat smooth.</p>
+                    <a href="https://sigitwcyber.github.io/WINGSTONE/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-neonBlue transition-colors">
+                        View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: Website Cafe -->
+            <div data-aos="fade-up" data-aos-delay="100" class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-neonBlue/30 transition-all duration-300">
+                <div class="overflow-hidden aspect-video relative bg-white/5">
+                    <div class="w-full h-full bg-gradient-to-br from-zinc-800 to-darkBg flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <i class="fa-solid fa-mug-saucer text-5xl text-white/10 group-hover:text-neonBlue/40 transition-colors duration-300"></i>
+                    </div>
+                    <span class="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded-full text-xs text-white border border-white/10">Kafe & Resto</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neonBlue transition-colors">Website Café</h3>
+                    <p class="text-gray-400 text-sm mb-6">Landing page estetik dengan integrasi menu digital, peta lokasi, serta skema pemesanan meja secara online.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-neonBlue transition-colors">
+                        View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3: website showroom mobil -->
+<div data-aos="fade-up" class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-neonBlue/30 transition-all duration-300">
+    <div class="overflow-hidden aspect-video relative bg-gradient-to-br from-slate-900 via-zinc-900 to-slate-900">
+        <!-- Background Pattern (Efek Bulatan Blur) -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-0 left-0 w-40 h-40 bg-amber-600 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-40 h-40 bg-yellow-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <!-- Professional Product Display -->
+        <div class="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+            <div class="text-center z-10">
+                <div class="text-6xl mb-4 group-hover:text-neonBlue transition-colors duration-300">
+                    <i class="fa-solid fa-car text-white/90 group-hover:text-neonBlue"></i>
+                </div>
+                <div class="text-white font-bold text-sm tracking-wider">LUXE DRIVE</div>
+                <div class="text-neonBlue text-xs mt-1">sport car showroom & Showcase</div>
+            </div>
+        </div>
+        <span class="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded-full text-xs text-white border border-white/10">Automotive</span>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neonBlue transition-colors">Luxe Drive</h3>
+        <p class="text-gray-400 text-sm mb-6">Website E-commerce fungsional untuk brand showroom mobil mewah dengan katalog interaktif dan responsif.</p>
+        <a href="https://golden-mochi-21004a.netlify.app/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-neonBlue transition-colors">
+            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+    </div>
+</div>
+
+            <!-- Project 4: Website Personal Branding -->
+            <div data-aos="fade-up" data-aos-delay="100" class="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-neonBlue/30 transition-all duration-300">
+                <div class="overflow-hidden aspect-video relative bg-gradient-to-br from-blue-900 via-slate-900 to-blue-950">
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-30">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-0 left-0 w-40 h-40 bg-cyan-500 rounded-full blur-3xl"></div>
+                    </div>
+                    <!-- Professional Portfolio Display -->
+                    <div class="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <div class="text-center z-10">
+                            <div class="text-6xl mb-4 group-hover:text-neonBlue transition-colors duration-300">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div class="text-white font-bold text-sm">SIGIT PORTFOLIO</div>
+                            <div class="text-neonBlue text-xs mt-1">Professional Resume</div>
+                        </div>
+                    </div>
+                    <span class="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded-full text-xs text-white border border-white/10">Personal Branding</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neonBlue transition-colors">Website Personal Branding</h3>
+                    <p class="text-gray-400 text-sm mb-6">Portfolio resume digital minimalis premium untuk para profesional guna menonjolkan keahlian otentik mereka.</p>
+                    <a href="https://sigitwcyber.github.io/sigit-portofolio/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-neonBlue transition-colors">
+                        View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI SECTION -->
+    <section id="testimoni" class="py-32 relative z-10 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-xs uppercase font-extrabold tracking-widest text-neonBlue mb-3">ULASAN</h2>
+            <p class="text-3xl md:text-4xl font-extrabold text-white">Apa Kata Klien Kami</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Testi 1 -->
+            <div data-aos="zoom-in-up" class="glass rounded-2xl p-6 flex flex-col justify-between border border-white/5">
+                <div>
+                    <div class="flex gap-1 text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                    </div>
+                    <p class="text-gray-300 italic text-sm leading-relaxed mb-6">
+                        “Website sangat modern dan premium. Desain luar biasa melebihi ekspektasi awal kami!”
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-neonBlue to-purple-500 flex items-center justify-center font-bold text-xs text-white">
+                        AN
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Alex Nugroho</h4>
+                        <span class="text-[11px] text-gray-500">CEO Clothing Co.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testi 2 -->
+            <div data-aos="zoom-in-up" data-aos-delay="100" class="glass rounded-2xl p-6 flex flex-col justify-between border border-white/5">
+                <div>
+                    <div class="flex gap-1 text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                    </div>
+                    <p class="text-gray-300 italic text-sm leading-relaxed mb-6">
+                        “Pengerjaan cepat dan responsive. Ketika ada revisi minor langsung dieksekusi malam itu juga.”
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center font-bold text-xs text-white">
+                        SR
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Siti Rahma</h4>
+                        <span class="text-[11px] text-gray-500">Owner Kopi Senja</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testi 3 -->
+            <div data-aos="zoom-in-up" data-aos-delay="200" class="glass rounded-2xl p-6 flex flex-col justify-between border border-white/5">
+                <div>
+                    <div class="flex gap-1 text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <i class="fa-solid fa-star text-xs"></i>
+                    </div>
+                    <p class="text-gray-300 italic text-sm leading-relaxed mb-6">
+                        “Design clean dan elegan. Kodingannya sangat rapi, performa loading speed di mobile mantap!”
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-xs text-white">
+                        DK
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Dimas Kurnia</h4>
+                        <span class="text-[11px] text-gray-500">Freelancer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-32 relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div class="glass rounded-3xl p-12 md:p-20 relative overflow-hidden border border-white/10" data-aos="zoom-in">
+            <!-- Overlay hiasan pendar cahaya di dalam card -->
+            <div class="absolute -top-12 -left-12 w-40 h-40 bg-neonBlue/20 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <h2 class="text-3xl md:text-6xl font-black tracking-tight text-white mb-4">
+                Siap Membuat Website?
+            </h2>
+            <p class="text-gray-400 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                Konsultasikan ide hebatmu sekarang secara gratis. Kami siap membangun platform premium masa depan Anda dengan efek neon glow yang memukau.
+            </p>
+
+            <!-- Tombol CTA Media Sosial -->
+            <div class="flex flex-col items-center gap-4 w-full">
+    
+    <a href="https://wa.me/6289620075477" target="_blank" rel="noopener noreferrer" class="w-64 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-2xl flex items-center justify-center gap-3 transition-all font-medium shadow-md">
+        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/gitt_web.evelopment" target="_blank" rel="noopener noreferrer" class="w-64 py-3 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:opacity-90 text-white rounded-2xl flex items-center justify-center gap-3 transition-all font-medium shadow-md">
+        <i class="fa-brands fa-instagram text-xl"></i> Instagram
+    </a>
+
+    <a href="https://www.tiktok.com/@gittdevelopment?_r=1&_t=ZS-96gkyivIpqZ" target="_blank" rel="noopener noreferrer" class="w-64 py-3 bg-black border border-white/10 hover:bg-zinc-950 text-white rounded-2xl flex items-center justify-center gap-3 transition-all font-medium shadow-md">
+        <i class="fa-brands fa-tiktok text-xl"></i> TikTok
+    </a>
+
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-black/60 relative z-10 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-sm text-gray-500">
+                &copy; 2026 <span class="text-white font-semibold">GITT Web Development</span>. Hak Cipta Dilindungi.
+            </p>
+            <!-- Ikon Media Sosial -->
+            <div class="flex gap-6 text-gray-400">
+                <a href="https://wa.me/qr/KEAOUTIAJSY5E1" target="_blank" class="hover:text-[#25D366] transition-colors"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                <a href="https://www.instagram.com/gitt_web.evelopment?igsh=MXJwbmx5aHd5M2dudw==" target="_blank" class="hover:text-pink-500 transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="https://www.tiktok.com/@gittdevelopment?_r=1&_t=ZS-96gkyivIpqZ" target="_blank" class="hover:text-neonBlue transition-colors"><i class="fa-brands fa-tiktok text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS SCRIPTS -->
+    <!-- AOS JS Library untuk animasi scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi Animasi AOS
+        AOS.init({
+            once: true,
+            mirror: false
+        });
+
+        // Interaktivitas Menu Mobile (Burger)
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Menutup menu mobile otomatis saat salah satu link diklik
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Efek Navbar Mengecil & Berganti Background saat di-scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-xl', 'bg-darkBg/90');
+            } else {
+                nav.classList.remove('shadow-xl', 'bg-darkBg/90');
+            }
+        });
+    </script>
+</body>
+</html>
